@@ -11,6 +11,7 @@ module.exports = [
     title: 'Escalando Aplicações para Milhões de Usuários na Rede Globo',
     duration: '33 min',
     price: 'Free',
+    featured: true,
   },
 
   {
@@ -18,6 +19,7 @@ module.exports = [
     title: 'Uso das Tecnologias em um Banco Digital - Banco Neon',
     duration: '75 min',
     price: 'Free',
+    featured: true,
   },
 
   {
@@ -32,6 +34,7 @@ module.exports = [
     title: 'Migrando de Tecnologias Dentro de um App Grande',
     duration: '38 min',
     price: 'Free',
+    featured: true,
   },
 
   {

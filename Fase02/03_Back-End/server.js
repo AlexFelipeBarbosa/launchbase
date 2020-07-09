@@ -13,6 +13,7 @@ server.set('view engine', 'njk');
 nunjucks.configure('views', {
   express: server,
   autoescape: false,
+  noCache: true,
 });
 
 // adicionado a rota
@@ -40,6 +41,20 @@ server.get('/', function (req, res) {
 // Rota da pagina portifolio
 server.get('/portfolio', function (req, res) {
   return res.render('portfolio', { items: videos });
+});
+
+// Rota para visualização do Video
+server.get('/video', function (req, res) {
+  const id = req.query.id;
+
+  const video = videos.find(function (video) {
+    return video.id == id;
+  });
+  if (!video) {
+    return res.send('Video not found!');
+  }
+
+  return res.render('video', { item: video });
 });
 
 // servidor na porta 5000

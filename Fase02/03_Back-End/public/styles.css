@@ -156,3 +156,35 @@ iframe {
   position: absolute;
   top: 5%;
 }
+
+/*=== FEATURED ===*/
+.featured-wrapper.card__image-container {
+  position: relative;
+}
+.featured {
+  position: absolute;
+  background: #f7d05f;
+  color: #111;
+  padding: 1px 4px;
+  left: 5px;
+  border-radius: 10px;
+  top: -6px;
+}
+
+/*=== VIDEO PAGE ===*/
+.video {
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+.card__video-container {
+  position: relative;
+  padding-top: 60%;
+}
+
+.card__video-container iframe {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+}
