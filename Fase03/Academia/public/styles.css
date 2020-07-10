@@ -60,3 +60,35 @@ header {
   width: 100%;
   transition: width 700ms ease-in-out;
 }
+
+/* === CARD === */
+.card {
+  background-color: white;
+  width: 800px;
+  height: 400px;
+
+  /* espacamento ao centro */
+  margin: 45px auto;
+
+  /* grid dividido ao meio */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  /* sombra */
+  box-shadow: 6px 6px 6px 5px rgba(0, 0, 0, 0.4);
+
+  /* animação */
+  animation-name: up;
+  animation-duration: 700ms;
+  animation-timing-function: ease-out;
+}
+
+@keyframes up {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+  }
+}
