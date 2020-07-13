@@ -4,8 +4,8 @@ const routes = require('./routes');
 
 const server = express();
 
-// arquivos estaticos
-server.use(express.static('public'));
+server.use(express.urlencoded({ extended: true })); // utilizado no POST para pegar os dados do Body
+server.use(express.static('public')); // arquivos estaticos
 server.use(routes);
 
 // configurando a template engine
