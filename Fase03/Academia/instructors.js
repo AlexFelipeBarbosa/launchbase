@@ -1,6 +1,6 @@
 const fs = require('fs'); // file system - trabalhando com arquivos
 const data = require('./data/data.json'); // recebendo o arquivo de dados.
-const { age } = require('./utils/utils');
+const { age, date } = require('./utils/utils');
 
 // show (mostrar o Instrutor por Id)
 exports.show = function (req, res) {
@@ -16,7 +16,9 @@ exports.show = function (req, res) {
     ...foundInstructor,
     age: age(foundInstructor.birth),
     services: foundInstructor.services.split(','),
-    created_at: '',
+    created_at: new Intl.DateTimeFormat('pt-BR').format(
+      foundInstructor.created_at
+    ),
   };
 
   return res.render('instructors/show', { instructor: instructor });
@@ -60,4 +62,21 @@ exports.post = function (req, res) {
     if (err) return res.send('Write file error!');
     return res.redirect('/instructors');
   });
+};
+
+// Edit
+exports.edit = function (req, res) {
+  const { id } = req.params;
+
+  const foundInstructor = data.intructors.find(function (instructor) {
+    return id == instructor.id;
+  });
+  if (!foundInstructor) return res.send('Instrutor não encontrado!');
+
+  const instructor = {
+    ...foundInstructor,
+    birth: date(foundInstructor.birth),
+  };
+
+  return res.render('instructors/edit', { instructor });
 };
