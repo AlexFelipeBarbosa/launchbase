@@ -1,22 +1,31 @@
 {
   "instructors": [
     {
-      "id": "1",
+      "id": 1,
       "name": "Instrutor 1",
-      "avatar_url": "http://eeee.com",
+      "avatar_url": "https://media.istockphoto.com/photos/fitness-instructor-and-girl-smiling-picture-id545112632",
       "birth": 391651200000,
       "gender": "M",
       "services": "musculação, aerobico, zumba, natação, muitas coisas",
       "created_at": 1594737493355
     },
     {
-      "id": "2",
+      "id": 2,
       "name": "Instrutor novo",
-      "avatar_url": "https://dgdgdgdg",
+      "avatar_url": "https://d3ctd91c7nw0ql.cloudfront.net/damfiles/box_list_img/global/performance-production/applications/fitness/fitness_wireless_headset_instructor_sm31fh-1920x1800-20_11_2018.jpg-e73cb5fe440eed183f59e93f52602b2e.jpg",
       "birth": 395971200000,
       "gender": "F",
       "services": "basquete, futebol, volei, academia, bicicleta, natação",
       "created_at": 1594737544527
+    },
+    {
+      "id": 3,
+      "name": "Alex Felipe Barbosa",
+      "avatar_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcShGqOmHFXQF6ATtlDqANhHUouaw_gS4cuwHQ&usqp=CAU",
+      "birth": 391651200000,
+      "gender": "M",
+      "services": "futebol, bike, musculacao",
+      "created_at": 1594770197331
     }
   ]
 }

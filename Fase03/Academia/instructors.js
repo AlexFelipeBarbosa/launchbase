@@ -2,6 +2,10 @@ const fs = require('fs'); // file system - trabalhando com arquivos
 const data = require('./data/data.json'); // recebendo o arquivo de dados.
 const { age, date } = require('./utils/utils');
 
+exports.index = function (req, res) {
+  return res.render('instructors/index', { instructors: data.instructors });
+};
+
 // show (mostrar o Instrutor por Id)
 exports.show = function (req, res) {
   // desestruturando o req.params e pegando o Id
@@ -102,6 +106,7 @@ exports.put = function (req, res) {
     ...foundInstructor,
     ...req.body,
     birth: Date.parse(req.body.birth),
+    id: Number(req.body.id),
   };
 
   data.instructors[index] = instructor;
