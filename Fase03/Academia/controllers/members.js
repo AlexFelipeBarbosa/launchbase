@@ -1,12 +1,12 @@
 const fs = require('fs'); // file system - trabalhando com arquivos
 const data = require('../data/data.json'); // recebendo o arquivo de dados.
-const { age, date } = require('../utils/utils');
+const { date } = require('../utils/utils');
 
 exports.index = function (req, res) {
   return res.render('members/index', { members: data.members });
 };
 
-// show (mostrar o Instrutor por Id)
+// show (mostrar o Membro por Id)
 exports.show = function (req, res) {
   // desestruturando o req.params e pegando o Id
   const { id } = req.params;
@@ -18,7 +18,7 @@ exports.show = function (req, res) {
 
   const member = {
     ...foundMember,
-    age: age(foundMember.birth),
+    birth: date(foundMember.birth).birthDay,
   };
 
   return res.render('members/show', { member: member });
@@ -38,28 +38,24 @@ exports.post = function (req, res) {
     }
   }
 
-  // Desestruturando o req.body (para ter certeza que estamos pegando somente as informações necessárias.)
-  let { avatar_url, birth, name, services, gender } = req.body;
-
-  // Incluindo a data de cadastro no JSON
-  const created_at = Date.now(); // data de agora
-
   // Padronizando as datas
-  birth = Date.parse(birth);
+  birth = Date.parse(req.body.birth);
 
-  //Criando o Id de Instrutor
-  const id = Number(data.members.length + 1);
+  // Regra para gravar o Id
+  let id = 1;
+  //Pegando o ultimo Id de Members
+  const lastMember = data.members[data.members.length - 1];
+  if (lastMember) {
+    id = lastMember.id + 1;
+  }
 
   // Gravando o arquivo
   data.members.push({
+    ...req.body,
     id,
-    name,
-    avatar_url,
     birth,
-    gender,
-    services,
-    created_at,
   });
+
   fs.writeFile('./data/data.json', JSON.stringify(data, null, 2), function (
     err
   ) {
@@ -75,11 +71,11 @@ exports.edit = function (req, res) {
   const foundMember = data.members.find(function (member) {
     return id == member.id;
   });
-  if (!foundMember) return res.send('Instrutor não encontrado!');
+  if (!foundMember) return res.send('Membro não encontrado!');
 
   const member = {
     ...foundMember,
-    birth: date(foundMember.birth),
+    birth: date(foundMember.birth).iso,
   };
 
   return res.render('members/edit', { member });
