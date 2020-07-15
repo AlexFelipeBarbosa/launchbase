@@ -1,6 +1,6 @@
 const fs = require('fs'); // file system - trabalhando com arquivos
 const data = require('../data/data.json'); // recebendo o arquivo de dados.
-const { date } = require('../utils/utils');
+const { date } = require('../../lib/utils');
 
 exports.index = function (req, res) {
   return res.render('members/index', { members: data.members });
