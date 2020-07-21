@@ -5,24 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
     {% block head %}
-      <title>Projeto Academia - Alex Felipe Barbosa</title>
+      <title>Launch Store - Alex Felipe Barbosa</title>
     {% endblock %}
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <link rel="stylesheet" href="/styles.css"/>
   </head>
 
+  {% include "parts/header.njk" %}
+
   <body>
     <header>
       <div class="links">
-        <a href="/instructors">Instructors</a>
-        <a href="/members">Members</a>
-
+       
       </div>
     </header>
 
     {% block content %}{% endblock %}
 
-    <script src="/scripts.js"></script>
+    {% include "parts/footer.njk" %}
+
+
 
   </body>
 </html>
