@@ -1,12 +1,12 @@
 const { formatPrice, date } = require('../../lib/utils');
+
 const Category = require('../models/Category');
 const Product = require('../models/Product');
 const File = require('../models/File');
 
 module.exports = {
   create(req, res) {
-    // Pegar as categorias
-    /* Neste exemplo utilizando formato de Promise */
+    // Pegar Categorias
     Category.all()
       .then(function (results) {
         const categories = results.rows;
@@ -16,10 +16,7 @@ module.exports = {
         throw new Error(err);
       });
   },
-
   async post(req, res) {
-    // Lógica de Salvar
-    /* Neste exemplo utilizando async/await */
     const keys = Object.keys(req.body);
 
     for (key of keys) {
@@ -41,26 +38,33 @@ module.exports = {
 
     return res.redirect(`/products/${productId}/edit`);
   },
-
   async show(req, res) {
     let results = await Product.find(req.params.id);
     const product = results.rows[0];
 
     if (!product) return res.send('Product Not Found!');
 
-    const { day, hour, minutes, month, year } = date(product.update_at);
+    const { day, hour, minutes, month } = date(product.updated_at);
 
     product.published = {
-      day: `${day}/${month}/${year}`,
+      day: `${day}/${month}`,
       hour: `${hour}h${minutes}`,
     };
 
-    product.old_price = formatPrice(product.old_price);
+    product.oldPrice = formatPrice(product.old_price);
     product.price = formatPrice(product.price);
 
-    return res.render('products/show', { product });
-  },
+    results = await Product.files(product.id);
+    const files = results.rows.map((file) => ({
+      ...file,
+      src: `${req.protocol}://${req.headers.host}${file.path.replace(
+        'public',
+        ''
+      )}`,
+    }));
 
+    return res.render('products/show', { product, files });
+  },
   async edit(req, res) {
     let results = await Product.find(req.params.id);
     const product = results.rows[0];
@@ -70,11 +74,11 @@ module.exports = {
     product.old_price = formatPrice(product.old_price);
     product.price = formatPrice(product.price);
 
-    // Pegando as Categorias
+    // get categories
     results = await Category.all();
     const categories = results.rows;
 
-    // Pegando as Imagens
+    // get images
     results = await Product.files(product.id);
     let files = results.rows;
     files = files.map((file) => ({
@@ -85,9 +89,8 @@ module.exports = {
       )}`,
     }));
 
-    return res.render('products/edit.njk', { product, categories });
+    return res.render('products/edit.njk', { product, categories, files });
   },
-
   async put(req, res) {
     const keys = Object.keys(req.body);
 
@@ -132,7 +135,6 @@ module.exports = {
 
     return res.redirect(`/products/${req.body.id}`);
   },
-
   async delete(req, res) {
     await Product.delete(req.body.id);
 
