@@ -19,7 +19,6 @@ module.exports = {
               ''
             )}`
         );
-
         return files[0];
       }
 
