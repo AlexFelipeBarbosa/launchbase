@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    {% block head %}
+      <title>Launch Store - Alex Felipe Barbosa</title>
+    {% endblock %}
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link rel="stylesheet" href="/styles.css"/>
+  </head>
+
+  {% include "parts/header.njk" %}
+
+  <body>
+    <header>
+      <div class="links">
+       
+      </div>
+    </header>
+
+    {% block content %}{% endblock %}
+
+    {% include "parts/footer.njk" %}
+
+
+
+  </body>
+</html>
