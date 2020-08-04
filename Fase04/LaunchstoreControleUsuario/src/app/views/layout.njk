@@ -8,14 +8,16 @@
       <title>Launch Store - Alex Felipe Barbosa</title>
     {% endblock %}
 
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    {% include "parts/styles.njk" %}
 
-    <link rel="stylesheet" href="/styles.css"/>
   </head>
-
-  {% include "parts/header.njk" %}
-
+ 
   <body>
+
+    {% include "parts/messages.njk" %}
+
+    {% include "parts/header.njk" %}
+
     <header>
       <div class="links">
        
