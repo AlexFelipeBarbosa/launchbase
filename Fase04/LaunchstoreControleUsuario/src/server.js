@@ -7,6 +7,10 @@ const session = require('./config/session');
 const server = express();
 
 server.use(session);
+server.use((req, res, next) => {
+  res.locals.session = req.session;
+  next();
+});
 server.use(express.urlencoded({ extended: true })); // utilizado no POST para pegar os dados do Body
 server.use(express.static('public')); // arquivos estaticos
 server.use(methodOverride('_method'));
