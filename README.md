@@ -1,8 +1,3 @@
-# Launchbase
-<strong> Alex Felipe Barbosa 06/07/2020 </strong> <br>
-Repositório criado para o curso Launchbase da Rocketseat
-
-
 # Curso LaunchBase 2.0 da Rocketseat
 
 ## Repositório criado para o curso LaunchBase da Rocketseat
