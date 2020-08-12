@@ -24,7 +24,7 @@ routes.post(
 );
 routes.post('/password-reset', SessionValidator.reset, SessionController.reset);
 
-// user register UserControler
+// user register UserController
 // criacao - atualizacao - remocao
 routes.get('/register', UserController.registerForm);
 routes.post('/register', UserValidator.post, UserController.post);

@@ -41,7 +41,7 @@ module.exports = {
 
       return res.render('user/index', {
         user: req.body,
-        sucess: 'Conta atualizada com sucesso!',
+        success: 'Conta atualizada com sucesso!',
       });
     } catch (err) {
       console.error(err);
@@ -57,11 +57,12 @@ module.exports = {
       req.session.destroy();
 
       return res.render('session/login', {
-        sucess: 'Conta deletada com sucesso!',
+        success: 'Conta deletada com sucesso!',
       });
     } catch (err) {
       console.error(err);
       return res.render('user/index', {
+        user: req.body,
         error: 'Erro ao tentar deletar sua conta!',
       });
     }

@@ -1,6 +1,6 @@
 :root {
   --primary-color: #fd951f;
-  --second-color: #1f83fd;
+  --secondary-color: #1f83fd;
 }
 
 * {
@@ -57,7 +57,7 @@ footer {
 }
 
 .button.edit {
-  background-color: var(--second-color);
+  background-color: var(--secondary-color);
 }
 
 .button.delete {
@@ -180,7 +180,7 @@ form .item textarea,
 form .item select {
   width: 100%;
   padding: 8px 16px;
-  box-shadow: 2px 2px 2px -4px rgba(63, 63, 63, 0.5);
+  box-shadow: 2px 2px 2px -4px rgba(63, 63, 63, 0.9);
   border: 1px solid #efefef;
   border-radius: 4px;
   font-size: 16px;
@@ -230,7 +230,7 @@ form .item #photos-upload p {
   padding: 8px 16px;
   border-radius: 4px;
   box-shadow: 0 2px 2px -6px #333;
-  background-color: var(--second-color);
+  background-color: var(--secondary-color);
   color: white;
   width: 100%;
   text-align: center;
@@ -423,7 +423,7 @@ form .item #photos-preview img {
 }
 
 .product-single .price-buy .buy button {
-  background-color: var(--second-color);
+  background-color: var(--secondary-color);
   font-size: 14px;
   letter-spacing: 0.4px;
 }
@@ -460,7 +460,7 @@ form .item #photos-preview img {
   color: #101010;
   font-weight: 300;
   font-size: 24px;
-  margin-top: 24px;
+  margin-top: 8px;
 }
 
 .shop .product .old-price {

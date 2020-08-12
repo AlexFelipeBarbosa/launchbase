@@ -9,7 +9,7 @@ module.exports = {
     let query = 'SELECT * FROM users';
 
     Object.keys(filters).map((key) => {
-      //WHERE | OR | AND
+      // WHERE | OR | AND
       query = `${query}
       ${key}`;
 
@@ -46,7 +46,7 @@ module.exports = {
         passwordHash,
         data.cpf_cnpj.replace(/\D/g, ''),
         data.cep.replace(/\D/g, ''),
-        data.adress,
+        data.address,
       ];
 
       const results = await db.query(query, values);
@@ -79,7 +79,9 @@ module.exports = {
 
   async delete(id) {
     // Pegar todos os produtos
-    let results = await Product.all();
+    let results = await db.query('SELECT * FROM products WHERE user_id = $1', [
+      id,
+    ]);
     const products = results.rows;
 
     // dos produtos, pegar todas as imagens
@@ -94,7 +96,13 @@ module.exports = {
 
     // remover as imagens da pasta public
     promiseResults.map((results) => {
-      results.rows.map((file) => fs.unlinkSync(file.path));
+      results.rows.map((file) => {
+        try {
+          fs.unlinkSync(file.path);
+        } catch (err) {
+          console.error(err);
+        }
+      });
     });
   },
 };

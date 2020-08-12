@@ -5,7 +5,7 @@ const User = require('../models/User');
 
 module.exports = {
   loginForm(req, res) {
-    return res.render('/session/login');
+    return res.render('session/login');
   },
 
   login(req, res) {
@@ -47,15 +47,16 @@ module.exports = {
         html: ` <h2> Perdeu a chave? </h2>
           <p> Não se preocupe, clique no link abaixo para recuperar sua senha </p>
           <p>
-            <a href="http://localhost:3000/users/password-reset?token=${token}" target=_blank"> </a>
+            <a href="http://localhost:3000/users/password-reset?token=${token}" target="_blank"> 
             RECUPERAR SENHA
+            </a>
           </p>     
       `,
       });
 
       // avisar o usuario que enviamos o email
       return res.render('session/forgot-password', {
-        sucess: 'Verifique seu email para resetar sua senha!',
+        success: 'Verifique seu email para resetar sua senha!',
       });
     } catch (err) {
       console.error(err);
@@ -85,7 +86,7 @@ module.exports = {
       });
 
       // Avisa o usuário que ele tem uma nova senha
-      return res.render('/session/login', {
+      return res.render('session/login', {
         user: req.body,
         sucess: 'Senha atualizada! Faça o seu login',
       });

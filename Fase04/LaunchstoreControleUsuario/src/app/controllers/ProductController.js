@@ -28,7 +28,7 @@ module.exports = {
     if (req.files.length == 0)
       return res.send('Please, send at least one image');
 
-    req.body.user_id = req.session.user_id;
+    req.body.user_id = req.session.userId;
     let results = await Product.create(req.body);
     const productId = results.rows[0].id;
 
@@ -101,6 +101,14 @@ module.exports = {
       }
     }
 
+    if (req.files.length != 0) {
+      const newFilesPromise = req.files.map((file) =>
+        File.create({ ...file, product_id: req.body.id })
+      );
+
+      await Promise.all(newFilesPromise);
+    }
+
     if (req.body.removed_files) {
       // 1,2,3,
       const removedFiles = req.body.removed_files.split(','); // [1,2,3,]
@@ -110,19 +118,6 @@ module.exports = {
       const removedFilesPromise = removedFiles.map((id) => File.delete(id));
 
       await Promise.all(removedFilesPromise);
-    }
-
-    if (req.files.length != 0) {
-      // validar se já não existem 6 imagens do banco de dados.
-      const oldFiles = await Product.files(req.body.id);
-
-      if (oldFiles.rows.length < 6) {
-        const newFilesPromise = req.files.map((file) =>
-          File.create({ ...file, product_id: req.body.id })
-        );
-
-        await Promise.all(newFilesPromise);
-      }
     }
 
     req.body.price = req.body.price.replace(/\D/g, '');
