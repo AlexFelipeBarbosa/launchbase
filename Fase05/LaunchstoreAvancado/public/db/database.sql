@@ -101,3 +101,14 @@ ADD CONSTRAINT files_product_id_fkey
 FOREIGN KEY ("product_id")
 REFERENCES "products" ("id")
 ON DELETE CASCADE;
+
+
+--> Zerando as tabelas para usar o SEEDS
+DELETE FROM products;
+DELETE FROM users;
+DELETE FROM files;
+
+--> Reiniciando as sequences
+ALTER SEQUENCE products_id_seq RESTART WITH 1;
+ALTER SEQUENCE users_id_seq RESTART WITH 1;
+ALTER SEQUENCE files_id_seq RESTART WITH 1;
