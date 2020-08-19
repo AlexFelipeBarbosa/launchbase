@@ -6,7 +6,7 @@ const Product = require('./src/app/models/Product');
 const File = require('./src/app/models/File');
 
 let usersIds = [];
-let totalProducts = 10;
+let totalProducts = 100;
 let totalUsers = 3;
 
 async function createUsers() {
@@ -51,7 +51,7 @@ async function createProducts() {
 
   let files = [];
 
-  while (files.length < 50) {
+  while (files.length < 500) {
     files.push({
       name: faker.image.image(),
       path: `public/images/placeholder.png`,
