@@ -14,6 +14,7 @@ module.exports = {
       console.error(error);
     }
   },
+
   async post(req, res) {
     try {
       let {
@@ -49,6 +50,7 @@ module.exports = {
       console.error(error);
     }
   },
+
   async show(req, res) {
     try {
       const product = await LoadProductService.load('product', {
@@ -62,6 +64,7 @@ module.exports = {
       console.error(error);
     }
   },
+
   async edit(req, res) {
     try {
       const product = await LoadProductService.load('product', {
@@ -78,6 +81,7 @@ module.exports = {
       console.error(error);
     }
   },
+
   async put(req, res) {
     try {
       if (req.files.length != 0) {
@@ -121,6 +125,7 @@ module.exports = {
       console.error(error);
     }
   },
+
   async delete(req, res) {
     const files = await Product.files(req.body.id);
 

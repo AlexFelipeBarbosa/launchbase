@@ -207,6 +207,7 @@ const Validate = {
 
     if (results.error) Validate.displayError(input, results.error);
   },
+
   displayError(input, error) {
     const div = document.createElement('div');
     div.classList.add('error');
@@ -214,10 +215,12 @@ const Validate = {
     input.parentNode.appendChild(div);
     input.focus();
   },
+
   clearErrors(input) {
     const errorDiv = input.parentNode.querySelector('.error');
     if (errorDiv) errorDiv.remove();
   },
+
   isEmail(value) {
     let error = null;
 
@@ -230,6 +233,7 @@ const Validate = {
       value,
     };
   },
+
   isCpfCnpj(value) {
     let error = null;
 
@@ -246,6 +250,7 @@ const Validate = {
       value,
     };
   },
+
   isCep(value) {
     let error = null;
 
@@ -259,5 +264,24 @@ const Validate = {
       error,
       value,
     };
+  },
+
+  allFields(e) {
+    const items = document.querySelectorAll(
+      ' .item input, .item select, .item textarea'
+    );
+
+    for (item of items) {
+      if (item.value == '') {
+        const message = document.createElement('div');
+        message.classList.add('messages');
+        message.classList.add('error');
+        message.style.position = 'fixed';
+        message.innerHTML = 'Todos os campos são obrigatórios.';
+        document.querySelector('body').append(message);
+
+        e.preventDefault();
+      }
+    }
   },
 };
