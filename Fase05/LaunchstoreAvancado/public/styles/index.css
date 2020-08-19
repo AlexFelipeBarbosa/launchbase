@@ -7,6 +7,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
   text-decoration: none;
   list-style-type: none;
   border: none;
@@ -19,6 +20,7 @@ body {
 
 body {
   font-family: 'Roboto', sans-serif;
+
   background-color: #f9f9f9;
   display: flex;
   flex-direction: column;
@@ -37,18 +39,24 @@ footer {
 .button {
   background-color: var(--primary-color);
   color: white;
+
   display: block;
   margin: 16px 0;
   padding: 12px 16px;
+
   width: 100%;
   border-radius: 4px;
-  /* para colocar o botão para baixo */
+
+  /* para colocar o botao para baixo */
   align-self: end;
+
   font-weight: bold;
   text-transform: uppercase;
   font-size: 16px;
   text-align: center;
+
   cursor: pointer;
+
   transition: all 0.2s;
 }
 
@@ -72,13 +80,16 @@ footer {
   background-color: rgb(223, 62, 62);
 }
 
-/*=== HEADER ===*/
+/* HEADER */
+
 header,
 footer {
   background-color: black;
   color: white;
+
   width: 100%;
   padding: 32px 0;
+
   text-align: center;
 }
 
@@ -93,7 +104,7 @@ header div.container a {
   justify-self: start;
 }
 
-/*=== LOGO ===*/
+/* LOGO */
 .logo h1 {
   color: white;
   font-size: 36px;
@@ -107,7 +118,7 @@ header div.container a {
   letter-spacing: 2px;
 }
 
-/*=== HEADER SEARCH ===*/
+/* HEADER SEARCH */
 .search input {
   width: 100%;
   padding: 8px 16px;
@@ -115,7 +126,7 @@ header div.container a {
   font-size: 16px;
 }
 
-/*=== PRIMARY MENU ===*/
+/* PRIMARY MENU */
 nav.primary ul {
   display: flex;
   justify-content: space-between;
@@ -124,25 +135,31 @@ nav.primary ul {
 nav.primary ul li a {
   display: flex;
   align-items: center;
+
   color: white;
+
   transition: 200ms;
 }
 
 nav.primary ul li a:hover {
   color: var(--primary-color);
 }
+
 nav.primary ul li a i {
   margin-right: 8px;
 }
 
-/*=== PRODUCTS FORM ===*/
+/* PRODUCTS FORM */
 section.form {
   background-color: white;
+
   padding: 32px 24px;
   margin: 32px auto;
+
   box-shadow: 2px 2px 2px -4px rgba(60, 60, 60, 0.9);
   border: 1px solid #efefef;
   border-radius: 4px;
+
   max-width: 700px;
   width: 90%;
 }
@@ -152,8 +169,10 @@ section.form .header h3 {
   line-height: 24px;
   letter-spacing: 0.7px;
   text-transform: uppercase;
+
   font-weight: bold;
   color: var(--primary-color);
+
   margin-bottom: 16px;
 }
 
@@ -170,6 +189,7 @@ form .item > div:nth-child(1) {
   text-transform: uppercase;
   font-size: 14px;
   font-weight: bold;
+
   margin-bottom: 8px;
 }
 
@@ -179,15 +199,19 @@ form .item input[type='number'],
 form .item textarea,
 form .item select {
   width: 100%;
+
   padding: 8px 16px;
+
   box-shadow: 2px 2px 2px -4px rgba(63, 63, 63, 0.9);
+
   border: 1px solid #efefef;
   border-radius: 4px;
+
   font-size: 16px;
 }
 
 form .item select {
-  /* permitir estilização no select */
+  /* permitir estilizacao no select */
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
@@ -218,11 +242,13 @@ form .item span {
   font-size: 12px;
 }
 
-/*=== PHOTOS UPLOAD ===*/
+/* PHOTOS UPLOAD */
 form .item #photos-upload {
   position: relative;
+
   display: block;
   overflow: hidden;
+
   width: 200px;
 }
 
@@ -232,8 +258,10 @@ form .item #photos-upload p {
   box-shadow: 0 2px 2px -6px #333;
   background-color: var(--secondary-color);
   color: white;
+
   width: 100%;
   text-align: center;
+
   text-transform: uppercase;
   font-size: 14px;
 }
@@ -242,11 +270,13 @@ form .item #photos-input {
   position: absolute;
   top: 0;
   left: 0;
+
   display: block;
   overflow: hidden;
   width: 100%;
   height: 100%;
   opacity: 0;
+
   cursor: pointer;
 }
 
@@ -261,6 +291,7 @@ form .item #photos-preview {
 form .item #photos-preview img {
   width: 100%;
   height: 150px;
+
   object-fit: cover;
 }
 
@@ -272,16 +303,22 @@ form .item #photos-preview img {
   position: absolute;
   top: 0;
   left: 0;
+
   background: rgba(255, 255, 255, 0.8);
   color: red;
+
   width: 100%;
   height: 100%;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   font-size: 500%;
   cursor: pointer;
+
   transition: opacity 200ms;
+
   opacity: 0;
 }
 
@@ -289,146 +326,7 @@ form .item #photos-preview img {
   opacity: 1;
 }
 
-/*=== PRODUCT VIEW === */
-.product-single {
-  background-color: white;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 24px;
-  padding: 32px 24px;
-  margin: 32px auto;
-
-  box-shadow: 2px 2px 2px -4px rgba(63, 63, 63, 0.9);
-  border: 1px solid #efefef;
-  border-radius: 4px;
-}
-
-/* === PRODUCT SINGLE GALERY === */
-.product-single .gallery {
-  width: 100%;
-}
-
-.product-single .highlight > img {
-  width: 100%;
-  height: 280px;
-  object-fit: none;
-  object-position: 50% 50%;
-  border: 1px solid #efefef;
-  cursor: zoom-in;
-}
-
-.product-single .gallery-preview {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 2px;
-}
-
-.product-single .gallery-preview img {
-  height: 100px;
-  width: 100%;
-  object-fit: cover;
-  opacity: 0.6;
-  cursor: pointer;
-  transition: 200ms;
-}
-
-.product-single .gallery-preview img:hover,
-.product-single .gallery-preview img.active {
-  opacity: 1;
-}
-
-/* === LIGHTBOX PRODUCT GALLERY === */
-.product-single .highlight .lightbox-target {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0 0.7);
-  overflow: hidden;
-  z-index: 100;
-  top: -100%;
-  left: 0;
-  opacity: 0;
-  transition: opacity 400ms;
-}
-
-.product-single .highlight .lightbox-target img {
-  margin: auto;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background-color: white;
-  box-shadow: 0px 0px 8px rgba(0, 0, 0 0.3);
-  width: 90%;
-  height: 90%;
-  object-fit: contain;
-}
-
-.product-single .highlight a.lightbox-close {
-  width: 50px;
-  height: 50px;
-  background: white;
-  position: absolute;
-  top: -80px;
-  right: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: 400ms;
-}
-
-/* === PRODUCT SINGLE INFO === */
-.product-single .info {
-  display: grid;
-  grid-template-rows: auto 40px 2fr 1fr;
-}
-
-.product-single .info h1 {
-  font-size: 32px;
-  line-height: 42px;
-  color: #333;
-  text-transform: uppercase;
-}
-.product-single .info .published {
-  color: #888;
-  font-size: 12px;
-  line-height: 22px;
-  letter-spacing: 0.4px;
-}
-
-/*=== PRICE-BUY ===*/
-.product-single .price-buy {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-top: 8px;
-  border-top: 1px solid #eee;
-}
-
-.product-single .price-buy .price {
-  font-size: 24px;
-  color: #333;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-}
-
-.product-single .price-buy .price .old {
-  text-decoration: line-through;
-  color: #999;
-  font-size: 14px;
-  font-weight: normal;
-  margin-left: 8px;
-}
-
-.product-single .price-buy .buy button {
-  background-color: var(--secondary-color);
-  font-size: 14px;
-  letter-spacing: 0.4px;
-}
-
-/*=== SHOP ===*/
+/* SHOP */
 .shop h2 {
   margin: 48px 0;
 }
@@ -436,6 +334,7 @@ form .item #photos-preview img {
 .shop .items {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+
   grid-gap: 32px;
 }
 
@@ -445,6 +344,7 @@ form .item #photos-preview img {
 
 .shop .product .image {
   padding-top: 56.25%;
+
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -466,32 +366,38 @@ form .item #photos-preview img {
 .shop .product .old-price {
   padding: 0;
   margin: 4px 0;
+
   font-size: 14px;
   color: #999;
+
   text-decoration: line-through;
 }
 
-/*=== SEARCH PAGE ===*/
+/* SEARCH PAGE */
 .search-products {
   display: grid;
   grid-template-columns: 200px 1fr;
+
   margin-top: 48px;
 }
 
 .search-products .header {
   margin-bottom: 48px;
+
   font-size: 14px;
   color: #333;
 }
 
 .search-products .header h2 {
   font-size: 26px;
-  text-transform: capitalize;
+  text-transform: uppercase;
+
   margin-bottom: 8px;
 }
 
 .search-products nav h4 {
   margin-bottom: 16px;
+
   color: #333;
   font-size: 14px;
   text-transform: uppercase;
@@ -510,22 +416,7 @@ form .item #photos-preview img {
   font-weight: bold;
 }
 
-/* === USER REGISTER ===*/
-.user-register.container.form {
-  max-width: 500px;
-}
-
-/*
-.form input[name='email'],
-.form input[name='password'],
-.form input[name='passwordRepeat'],
-.form input[name='cpf_cnpj'],
-.form input[name='cep'] {
-  max-width: 60%;
-}
-*/
-
-/* === VALIDADE ERRORS === */
+/* validate errors*/
 .input .error {
   background-color: #e74c3c;
   padding: 4px;
