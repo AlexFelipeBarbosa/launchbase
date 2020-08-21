@@ -38,4 +38,6 @@ routes.get('/ads', UserController.ads);
 
 routes.post('/orders', onlyUsers, OrderController.post);
 
+routes.get('/orders', (req, res) => res.render('orders/error'));
+
 module.exports = routes;
